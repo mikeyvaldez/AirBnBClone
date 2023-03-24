@@ -14,11 +14,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      username: {
-        type: Sequelize.STRING(30),
-        allowNull: false,
-        unique: true
-      },
       firstName: {
         allowNull: false,
         type: Sequelize.STRING(256)
@@ -26,6 +21,11 @@ module.exports = {
       lastName: {
         allowNull: false,
         type: Sequelize.STRING(256)
+      },
+      username: {
+        type: Sequelize.STRING(30),
+        allowNull: false,
+        unique: true
       },
       email: {
         type: Sequelize.STRING(256),
@@ -50,6 +50,6 @@ module.exports = {
   },
   down: async (queryInterface, Sequelize) => {
     options.tableName = 'Users';
-    return queryInterface.dropTable("Users", options);
+    return queryInterface.dropTable(options);
   }
 };
